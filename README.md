@@ -2,12 +2,18 @@
 
 ## The Sleeping Barber: Elixir and Go
 
+### Longiy Tsin & Wyatt Smith
+
 ---
 
 **Programming in the 21st Century — Concurrency Models**
 COMP SCI — Spring 2026
 
 ---
+
+# Reflection
+
+
 
 ## Overview
 
