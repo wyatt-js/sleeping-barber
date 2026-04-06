@@ -14,7 +14,7 @@ defmodule ShopOwner do
     Log.start()
     waiting_room_pid = WaitingRoom.start()
     barber_pid = Barber.start(waiting_room_pid)
-    Log.log("ShopOwner", "barbershop is open!")
+    Log.log("ShopOwner", "barbershop open")
     Process.sleep(2000)
     spawn_customers(waiting_room_pid, 1, ShopConfig.customers())
     Log.log("ShopOwner", "waiting #{ShopConfig.grace_period()}ms")
@@ -154,7 +154,7 @@ defmodule Barber do
         send(customer_pid, {:called_by_barber, self()})
         Process.sleep(duration)
         Log.log("Barber", "finished haircut for Customer #{customer_id}")
-        send(customer_pid, {:rate_, self()})
+        send(customer_pid, {:rate_req, self()})
         receive do
           {:rating, customer_id, score} ->
             new_cuts = cuts + 1
